@@ -3,14 +3,14 @@ import pytest
 
 class TestBooksCollector:
 
-    def test_add_new_book_name_less_then_40_symbols_book_is_added(self, collector_without_books):
+    def test_add_new_book_name_less_than_40_symbols_book_is_added(self, collector_without_books):
 
         book_name = 'Момент истины'
         collector_without_books.add_new_book(book_name)
         assert book_name in collector_without_books.books_genre
 
     @pytest.mark.parametrize('book_name', ['Похождения бравого солдата Швейка во время мировой войны', ''])
-    def test_add_new_book_name_more_then_40_or_less_then_1_symbols_book_is_not_added(self, collector_without_books, book_name):
+    def test_add_new_book_name_more_then_40_or_less_than_1_symbols_book_is_not_added(self, collector_without_books, book_name):
 
         collector_without_books.add_new_book(book_name)
         assert book_name not in collector_without_books.books_genre
